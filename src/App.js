@@ -1,23 +1,31 @@
+import { useState } from 'react';
 import './App.css';
-import React,{Component} from "react";
+import User from './User';
+
+//State function component code
 
 function App() {
+
+  const [data,setData] = useState("Admin");
+
+  function updateData(){
+    if(data==="Admin")
+    setData("User");
+    else
+    setData("Admin");
+  }
+
   return (
     <div className="App">
-      <h1>Hello world</h1>
+    <h1>State in Function Componet</h1>
+      <h2>{data}</h2>
+      <button onClick={updateData}>Update Data</button>
+     
       <User/>
-      <User></User>
+
     </div>
   );
 }
 
-
- class User extends Component{
-    render(){
-        return(
-            <h1>only one file in use</h1>
-        )
-    }
-}
 
 export default App;

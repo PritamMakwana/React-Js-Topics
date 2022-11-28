@@ -1,9 +1,9 @@
-import React,{Component} from "react";
+// import React,{Component} from "react";
 
-export default class User extends Component{
-    render(){
-        return(
-            <h1>Class component</h1>
-        )
-    }
-}
+// export default class User extends Component{
+//     render(){
+//         return(
+//             <h1>Class component</h1>
+//         )
+//     }
+// }

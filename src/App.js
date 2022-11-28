@@ -1,28 +1,23 @@
 import { useState } from 'react';
 import './App.css';
+import Student from './Student';
 import User from './User';
 
-//State function component code
+//Props with function component 
 
 function App() {
 
-  const [data,setData] = useState("Admin");
-
-  function updateData(){
-    if(data==="Admin")
-    setData("User");
-    else
-    setData("Admin");
-  }
+  const [name,setName] = useState("Admin");
 
   return (
     <div className="App">
-    <h1>State in Function Componet</h1>
-      <h2>{data}</h2>
-      <button onClick={updateData}>Update Data</button>
-     
-      <User/>
-
+    <h1>Props with function</h1>
+    <h1 >EX - 1</h1>
+    <User name ="gopal" email ="gopal@gmail.com" other = {{address : "delhi",mob :"000"}} />
+    <User name ="pritam" email ="pritam@gmail.com" other = {{address : "noida",mob :"101"}} />
+    <h1 >EX - 2</h1>
+    <Student name = {name} />
+    <button onClick={()=> {setName("User")}}>Update Name</button>
     </div>
   );
 }

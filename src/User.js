@@ -1,28 +1,11 @@
-import React,{Component} from "react";
-
-export default class User extends Component{
-//State class component code 
-
-    constructor(){
-        super();
-        this.state = {data : "Admin"}
-    }
-
-    Apple(){
-        
-    if(this.state.data==="Admin")
-    this.setState({data : "User"});
-    else
-    this.setState({data : "Admin"});
-    }
-
-    render(){
-        return(
-           <div>
-             <h1>State in Class Componet</h1>
-            <h2>{this.state.data}</h2>
-            <button onClick={()=>this.Apple()}>Update Name</button>
-           </div>
-        )
-    }
+export default function User(props){
+    return(
+        <div style={{backgroundColor : "skyblue"}}>
+            <h3>User Info</h3>
+            <h6>Hello : {props.name}</h6>
+            <h6>Email : {props.email}</h6>
+            <h6>Address: {props.other.address}</h6>
+            <h6>mob: {props.other.mob}</h6>
+        </div>
+    )
 }

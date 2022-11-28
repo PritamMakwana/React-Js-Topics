@@ -1,8 +1,14 @@
-export default function Student (p){
-    console.log(p);
-    return(
+import { Component } from "react"
+
+
+export default class Student extends Component{
+   
+    render(){
+        console.log(this.props)
+    return (
         <div>
-            <h1>Hello {p.name} </h1>
+            <h1>Hello {this.props.name} </h1>
         </div>
     )
+}
 }

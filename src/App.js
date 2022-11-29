@@ -3,29 +3,28 @@ import './App.css';
 import Student from './Student';
 import User from './User';
 
-//Props with Class component 
+function App(){
+ const [data,setData] = useState(null);
+ const [print,setPrint] = useState(false);
 
-class App extends Component {
+ function getData(val){
+  setData(val.target.value);
+ }
 
-  constructor() {
-    super();
-    this.state = { name: "Admin" }
-  }
 
-  render() {
-    return (
-      <div className="App">
-        <h1>Props with Class</h1>
-        <h1 >EX - 1</h1>
-        <User name="gopal" email="gopal@gmail.com" />
-        <User name="pritam" email="pritam@gmail.com" />
-        <h1 >EX - 2</h1>
-        <Student name={this.state.name} />
-        <button onClick={() => { this.setState({name :"User"}) }}>Update Name</button>
-      </div>
-    );
-  }
+  return(
+    <div className='App'>
+      {
+        print?<h1>{data}</h1>:null
+      }
+      <input type='text' onChange={getData} />
+    
+     
+      <button onClick={()=>setPrint(true)} >PrintData</button>
+
+
+    </div>
+  )
 }
-
 
 export default App;

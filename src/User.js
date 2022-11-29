@@ -1,12 +1,59 @@
-import React from "react"
-export default class User extends React.Component {
-    render() {
-        return (
-            <div style={{ backgroundColor: "skyblue" }}>
-                <h3>User Info</h3>
-                <h6>Hello : {this.props.name}</h6>
-                <h6>Email : {this.props.email}</h6>
-            </div>
-        )
+const { useState } = require("react");
+
+export default function User() {
+
+    const [user, setUser] = useState("");
+    const [password, setPassword] = useState("");
+    const [userErr, setUserErr] = useState(false);
+    const [passErr, setPassErr] = useState(false);
+
+    function loginHandle(e) {
+        if (user.length < 3 || password.length < 3) {
+            alert("type correct values")
+        } else {
+            alert("all good")
+        }
+        e.perventDefault();
     }
+
+    function userHandler(e) {
+        let item = e.target.value;
+        if (item.length < 3) {
+            setUserErr(true);
+        } else {
+            setUserErr(false);
+        }
+        setUser(item);
+    }
+
+    function passHandler(e) {
+        let item = e.target.value;
+        if (item.length < 3) {
+            setPassErr(true);
+        } else {
+            setPassErr(false);
+        }
+        setPassword(item);
+    }
+
+
+    return (
+        <div>
+            <h2>Login</h2>
+            <form onSubmit={loginHandle}>
+                <input type="text" placeholder="user id" onChange={userHandler} />
+                {userErr ? <span> id not valid</span> : ""}
+                <br />
+                <br />
+                <input type="password" placeholder="user password" onChange={passHandler} />
+                {passErr ? <span> password not valid</span> : ""}
+                <br />
+                <br />
+                <button type="Submit">Submit</button>
+
+            </form>
+        </div>
+    )
+
+
 }

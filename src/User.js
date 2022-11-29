@@ -1,12 +1,11 @@
 const { useState } = require("react");
 
-//corrent way
-export default function User(){
-    const [login,setLogin] = useState(false)
-
+export default function User(props){
     return(
         <div>
-          {login? <h5>You are Login</h5> :  <h5>You are not Login</h5>} 
+          <h3>User component</h3>  
+          {/* <button onClick={()=>props.data()}>call function</button> */}
+          <button onClick={()=>props.data()}>call function</button>
         </div>
     )
 }

@@ -5,15 +5,16 @@ import Student from './Student';
 import User from './User';
 
 function App(){
+
+  function getData(){
+    alert("Hello from app");
+  }  
   return(
     <div className='App'>
-       <h1>Conditional rendering | If condition</h1>
-      <h2>If else Ex 1 - not current way</h2>
-      <Profile/>
-      <h2>If else Ex 2 - current way</h2>
-      <User/>
-      <h2>If else..if ladder Ex 3 </h2>
-      <Student/>
+       <h1>Pass function as props</h1>
+      <User data={getData}/>
+      <Student data={getData}/>
+      <Profile data={getData}/>
     </div>
   )
 }

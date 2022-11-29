@@ -4,23 +4,19 @@ import Student from './Student';
 import User from './User';
 
 function App(){
- const [data,setData] = useState(null);
  const [print,setPrint] = useState(false);
-
- function getData(val){
-  setData(val.target.value);
- }
-
 
   return(
     <div className='App'>
       {
-        print?<h1>{data}</h1>:null
+        print?<h1>Hello</h1>:null
       }
-      <input type='text' onChange={getData} />
-    
-     
-      <button onClick={()=>setPrint(true)} >PrintData</button>
+
+      <button onClick={()=>setPrint(true)}>Show</button>
+
+      <button onClick={()=>setPrint(false)}>hide</button>
+
+      <button onClick={()=>setPrint(!print)}>Toggle </button>
 
 
     </div>

@@ -9,25 +9,31 @@ import User from './User';
 // Update
 // Removed
 
-//render life cycle method 
+//componentDidMount life cycle method 
+//this function call only ready component 
 
-function App(){
+export default class App extends React.Component{
 
-  const [name,setName] = React.useState("Admin")
+  constructor(){
+    super();
+    this.state = {name : "admin"}
+  } 
 
+  componentDidMount(){
+    console.log("componentDidMount")
+  }
+
+  render(){
+    console.log("render")
 
   return(
     <div className='App'>
-       <h1>Component ready - EX 1</h1>
-       <Profile />
-       <h1>Component of Props update - EX 2</h1>
-       <User name = {name} />
-       <button onClick={()=>setName("User")}>Update Name</button>
-       <h1>Component of State update - EX 3</h1>
-       <Student />
+      <h1>componentDidMount</h1>
+       <h3>name : {this.state.name}</h3>
+       <button onClick={()=>this.setState({name : "User"})}>Update Name</button>
     </div>
   )
+  }
 
 }
 
-export default App;

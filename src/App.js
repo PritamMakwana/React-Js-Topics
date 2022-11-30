@@ -9,24 +9,25 @@ import User from './User';
 // Update
 // Removed
 
-//constuctor life cycle method 
+//render life cycle method 
 
-class App extends React.Component{
+function App(){
 
-  constructor(){
-    super();
-    this.state = {
-      name : "admin"
-    }
-  }
+  const [name,setName] = React.useState("Admin")
 
-  render(){
+
   return(
     <div className='App'>
-       <h1>Name {this.state.name}</h1>
+       <h1>Component ready - EX 1</h1>
+       <Profile />
+       <h1>Component of Props update - EX 2</h1>
+       <User name = {name} />
+       <button onClick={()=>setName("User")}>Update Name</button>
+       <h1>Component of State update - EX 3</h1>
+       <Student />
     </div>
   )
-  }
+
 }
 
 export default App;

@@ -9,28 +9,45 @@ import User from './User';
 // Update
 // Removed
 
-//componentDidMount life cycle method 
-//this function call only ready component 
+//componentDidUpdate life cycle method 
+//this function run after state or props update 
 
 export default class App extends React.Component{
 
   constructor(){
     super();
-    this.state = {name : "admin"}
+    console.log("constructor")
+    this.state = {count : 0}
   } 
+  
 
+  componentDidUpdate(preProps,preState,snapshort){
+    console.log("componentDidUpdate",preState.count,this.state.count)
+//ex-1
+    if(preState.count === this.state.count){
+      alert("data is already same")
+    }
+
+//ex 2 error this sol using condition
+// this.setState({count : this.state.count + 1})
+
+  }
   componentDidMount(){
     console.log("componentDidMount")
   }
 
+ 
   render(){
     console.log("render")
 
   return(
     <div className='App'>
-      <h1>componentDidMount</h1>
-       <h3>name : {this.state.name}</h3>
-       <button onClick={()=>this.setState({name : "User"})}>Update Name</button>
+      <h1>componentDidUpdate</h1>
+       <h3>count : {this.state.count}</h3>
+       <button onClick={()=>this.setState({count : this.state.count + 1})}>Update Name</button>
+     {/* ex- 1 */}
+       {/* <button onClick={()=>this.setState({count : 1})}>Update Name</button> */}
+
     </div>
   )
   }
